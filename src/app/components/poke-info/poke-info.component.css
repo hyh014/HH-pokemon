@@ -1,0 +1,57 @@
+.container {
+    width: 75vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 6;
+    display: block;
+    margin: auto;
+    overflow: auto;
+    border: 1px solid black;
+}
+.catch-container {
+    display: flex;
+    justify-content: space-between;
+}
+* {
+    overflow-x: hidden;
+}
+
+.close-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+.move-description {
+    margin-left:10px;
+}
+ul {
+    padding: 0;
+}
+
+.move {
+    flex: 0 0 25%;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100vw !important;
+        height: 100vh;
+        background-color: white;
+        z-index: 6;
+        display: block;
+        margin: auto;
+        overflow: auto;
+        border: 1px solid black;
+        /* position: fixed; */
+    }
+    .column {
+        width: 100% !important;
+    }
+    .pokemon-img,
+    .pokemon-stat {
+        text-align: center;
+    }
+}

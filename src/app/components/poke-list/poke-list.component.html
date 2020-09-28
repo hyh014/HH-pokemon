@@ -1,0 +1,17 @@
+<div class="container">
+    <app-poke-info *ngIf="!isEmptyObject(pokeInfo)" [pokeInfo]=pokeInfo (valueChange)="handleClose($event)">
+    </app-poke-info>
+    <div class="catch-container">
+        <input class="search-bar " [(ngModel)]="search" (input)="searchKeyword()" placeholder="Search For a Pokemon" type="text">
+        <app-catch-list (infoChange)="handleInfo($event)"></app-catch-list>
+    </div>
+    <div id="poke-container">
+        <div *ngFor="let pokemon of keyword; let i = index" class="pokemon card ui">
+            <div (click)="viewInfo(pokemon.url,pokemon.id)">
+                <img src="{{imageUrl}}{{pokemon.id}}.png" (error)="onImgError($event,i)" />
+                <h3>{{pokemon.name}}</h3>
+            </div>
+            <button class="catch-button" (click)="catch(pokemon)">Add to Catch List</button>
+        </div>
+    </div>
+</div>

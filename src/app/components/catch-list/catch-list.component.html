@@ -1,0 +1,27 @@
+<button class="catchList-button" mat-button (click)="sidenav.toggle();show()">
+    <mat-icon>menu</mat-icon>
+</button>
+<mat-sidenav-container class="container">
+
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="content">
+        <h3>Catch List</h3>
+        <div class="pokemons" *ngFor="let pokemon of list;let i = index" [ngClass]="{caught:pokemon.caught}">
+
+            <img (click)="handleInfo(i)" src="{{imageUrl}}{{pokemon.id}}.png" />
+            <div>
+                {{pokemon.name}}
+            </div>
+            <div class="button-div">
+                <mat-icon (click)="catch(i)">done</mat-icon>
+                <mat-icon (click)="delete(i)">delete</mat-icon>
+
+            </div>
+
+
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

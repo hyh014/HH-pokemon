@@ -1,0 +1,90 @@
+<div class="ui container">
+    <div class="catch-container">
+        <button class="close-button" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <button (click)="catch(pokeInfo)">Add to Catch List</button>
+    </div>
+    <h1 class="ui header">{{pokemon.name}} #{{pokemon.id}}</h1>
+    <div class="ui segment">
+        <div class="ui three column very relaxed grid">
+            <div class="column ">
+                <img src="{{imageUrl}}{{pokeInfo.id}}.png">
+            </div>
+            <div class="column">
+                <table>
+                    <tr *ngFor="let stat of pokemon.stats">
+                        <td>{{stat.stat.name}}</td>
+                        <th>{{stat.base_stat}}</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="column">
+                <h3>Abilities</h3>
+                <div *ngFor="let ability of pokemon.abilities;let i = index;">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            {{ability.ability.name}} <span *ngIf="ability.is_hidden"> (Hidden)</span>
+
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+
+                            <div>
+
+                                {{abilityArray[i].data.effect_entries[0].effect}}
+
+                            </div>
+                        </ng-template>
+                    </mat-expansion-panel>
+                    <div class="ability-description">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui vertical divider">
+
+        </div>
+
+    </div>
+    <div *ngIf="moveArray.length>0">
+
+        <div *ngFor="let move of pokemon.moves;let i = index">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    {{move.move.name}}
+
+                </mat-expansion-panel-header>
+                <ng-template matExpansionPanelContent>
+                    
+                    <div class="ui segment">
+                        <div class="ui five column very relaxed grid">
+                            <div class="column move">
+                                Accuracy: {{moveArray[i].data.accuracy}}
+                            </div>
+                            <div class="column move">
+                                Power: {{moveArray[i].data.power}}
+                            </div>
+                            <div class="column move">
+                                PP: {{moveArray[i].data.pp}}
+                            </div>
+                            <div class="column move">
+                                Priority: {{moveArray[i].data.priority}}
+                            </div>
+                            <div class="column move">
+                                Move Type: {{moveArray[i].data.type.name}}
+                            </div>
+                        </div>
+                
+                    </div>
+                    <div class="move-description">
+
+                        {{moveArray[i].data.effect_entries[0].effect}}
+                    </div>
+                </ng-template>
+            </mat-expansion-panel>
+        </div>
+    </div>
+
+</div>

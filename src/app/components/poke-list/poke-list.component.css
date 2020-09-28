@@ -1,0 +1,66 @@
+/* html,
+body {
+    height: 100;
+    width: 100%;
+} */
+* {
+    margin: 0;
+    padding: 0;
+}
+app-poke-info {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h3 {
+    margin: auto;
+    text-align: center;
+}
+.search-bar {
+    margin: 50px auto 10px auto;
+    width: 100%;
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+}
+#poke-container {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* padding: 10px; */
+}
+.catch-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    margin: auto 0;
+}
+img {
+    width: 100%;
+}
+.card {
+    margin: auto;
+    flex: 0 0 10%;
+}
+
+.catch-button {
+    /* margin:auto; */
+    top: 0;
+}
+.pokemon {
+    margin: 10px !important;
+}
+.pokemon:hover {
+    background-color: #dcdcdc;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .card {
+        margin: auto;
+        flex: 0 1 25%;
+    }
+}
